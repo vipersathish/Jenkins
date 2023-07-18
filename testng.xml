@@ -13,7 +13,7 @@
 		<classes>
 
 			<class
-				name="pages.LoginPage" />
+				name="Test.LoginTestForPostiveAndNegativeFlow" />
 
 		</classes>
  
