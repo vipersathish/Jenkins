@@ -1,0 +1,147 @@
+package Test;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.io.FileUtils;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+import org.testng.ITestResult;
+import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import com.Screenit.version3.Initializer.Initializer;
+import com.Screenit.version3.Initializer.Screenshot;
+
+import Pages.LoginPage;
+
+
+public class LoginTestForPostiveAndNegativeFlow extends Initializer {
+	
+	
+//	static ExtentTest test;
+//	static ExtentReports report;
+//	
+//	@BeforeClass
+//	
+//	public static void startTest(){
+//		
+//		report = new ExtentReports("report\\screenit.html");
+//		test = report.startTest("ScreenitTestReport");
+//	}
+
+	@BeforeMethod
+
+	public void setUp() throws IOException {
+
+		
+		initialize();
+	
+	}
+
+	@Parameters({ "Emailid", "Password" ,"screenshotName"})
+	@Test(priority = 1)
+
+	public void loginFunctionality(String Emailid, String Password,String screenshotName) throws InterruptedException {
+
+		
+		Thread.sleep(3000);
+	 
+		driver.get(envprop.getProperty("LOGINURL"));
+		
+		LoginPage.enterMail(Emailid);
+	     
+		LoginPage.enterPassword(Password);
+		
+		LoginPage.clickSigninButton();
+		
+		Screenshot.Takescrenshots(screenshotName);
+
+		Thread.sleep(3000);
+		
+		String Url = driver.getCurrentUrl();
+		
+		Thread.sleep(2000);
+		
+		if(Url.equals("https://test.screenit.io/#/dashboard_v3")){
+			
+		//	test.log(LogStatus.PASS, "Navigated to the specified URL");
+			
+			System.out.println("login successfully with valid creditals"+"----"+Url);
+			
+			Reporter.log("Successfully login with valid creditals and Navigate to the dash board page"+"--------"+Url);
+				
+		}else{
+			
+			WebElement data2 = driver.findElement(By.xpath("//p[@class='error-msg']"));
+			
+			String message = data2.getText();
+			
+			System.out.println(message);
+			
+			Assert.assertEquals(message,"Invalid Credentials");
+			
+		//	test.log(LogStatus.FAIL, "TestFailed");
+			
+			Reporter.log("Successfully enter the wrong creditals getting message from loginpage"+"---"+message);
+		}
+	
+		}
+	
+	@AfterMethod
+				
+			public static String capture() throws IOException {
+		
+		
+	
+			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			
+			File Dest = new File("C:\\Users\\TTS-USER\\workspace\\com.TestngFramework.ScreenitV3\\ScreenShots\\" + System.currentTimeMillis()
+			+ ".png");
+			
+			String errflpath = Dest.getAbsolutePath();
+			
+			FileUtils.copyFile(scrFile, Dest);
+			
+			return errflpath;
+
+	}	
+
+    public static String timestamp() {
+    	
+        return new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());
+    }
+    
+//    @AfterClass
+//    
+//    public static void endTest() throws EmailException
+//    {
+//    	
+//    report.endTest(test);
+//    report.flush();
+//    
+//  
+//     
+//    } 
+//    
+	
+}

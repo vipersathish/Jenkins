@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+ <test thread-count="5" name="Test">
+
+<parameter name="Emailid" value="san12@screenit.io" />
+
+		<parameter name="Password" value="Welcome@1" />
+		
+		<parameter name="screenshotName"   value="LoginPagePostivescreenshotWithValidEmailidAndPassword"/>
+
+		<classes>
+
+			<class
+				name="pages.LoginPage" />
+
+		</classes>
+ 
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
