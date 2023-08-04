@@ -59,7 +59,7 @@ public class LoginTestForPostiveAndNegativeFlow extends Initializer {
 	}
 
 	@Parameters({ "Emailid", "Password" ,"screenshotName"})
-	@Test(priority = 1)
+	@Test(priority = 1 )
 
 	public void loginFunctionality(String Emailid, String Password,String screenshotName) throws InterruptedException {
 
