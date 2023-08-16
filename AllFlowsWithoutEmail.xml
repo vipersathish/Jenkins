@@ -11,6 +11,14 @@
 		<suite-file path="ForgotPasswordPositiveAndNegativeFlow.xml" />
 
 		<suite-file path="SignupFlowForPostiveAndNegative.xml" />
+		
+		<suite-file path="UploadIDForPostiveAndNegativeFile.xml" />
+		
+		<suite-file path="UploadResumePostiveAndNegative.xml" />
+		
+		<suite-file path="HomePagePostiveAndNegative.xml"/>
+		
+		
 
 		
 		
