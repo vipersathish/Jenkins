@@ -82,7 +82,7 @@ public class LoginTestForPostiveAndNegativeFlow extends Initializer {
 		
 		Thread.sleep(2000);
 		
-		if(Url.equals("https://test.screenit.io/#/dashboard_v3")){
+		if(Url.equals("https://demo.screenit.io/#/dashboard_v3")){
 			
 		//	test.log(LogStatus.PASS, "Navigated to the specified URL");
 			
