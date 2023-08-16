@@ -71,7 +71,7 @@ public class SignupTestForPostiveAndNegativeFlow extends Initializer {
 
 		Thread.sleep(3000);
 
-		if (url.equals("https://test.screenit.io/#/registeration/complete")) {
+		if (url.equals("https://demo.screenit.io/#/registeration/complete")) {
 
 			System.out.println("sign up successfully ");
 
