@@ -30,10 +30,7 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>6.1.1</version>
-<<<<<<< HEAD
-=======
 
->>>>>>> 0b001328fbbaceed2eb5465f537fd6dba59cae70
         </dependency>
 
 	</dependencies>
