@@ -116,7 +116,7 @@ public class CandidateProfilePage {
 
 		Thread.sleep(2000);
 
-		WebElement cancelbtn = DriverFunctions.getElementByXpath("(//span[text()='�'])[1]");
+		WebElement cancelbtn = DriverFunctions.getElementByXpath("//button[text()=' Cancel ']");
 
 			cancelbtn.click();
 
