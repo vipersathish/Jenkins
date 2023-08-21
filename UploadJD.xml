@@ -47,7 +47,7 @@
 
 		<classes>
 
-			<class name="com.Screenit.version3.Test.UploadJDForPostiveAndNegativeFlow" />
+			<class name="Test.UploadJDForPostiveAndNegativeFlow" />
 
 		</classes>
 
